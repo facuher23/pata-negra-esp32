@@ -1,20 +1,41 @@
-# El Pata Negra ESP32
+# The Pata Negra ESP32
 
-Line follower competitivo basado en ESP32-S3.
+A high-performance ESP32-based line follower robot designed for speed, precision, and clean software architecture.
+
+This project focuses not only on competitive performance but also on writing maintainable and modular C++ code using PlatformIO.
 
 ## Hardware
-- ESP32-S3
-- QTR 8 sensores
-- Driver de motores PWM
-- Motores DC
+
+- **Microcontroller:** ESP32-S3 N16R8
+- **Sensors:** Pololu QTR-8RC
+- **Motor Driver:** DRV8833
+- **Motors:** N20 1000 RPM
+- **Wheels:** Ø30 mm
+- **Battery:** 2S 18650 Li-ion (7.4 V nominal)
 
 ## Software
+
 - PlatformIO
 - Arduino Framework
 - C++
 
-## Características
-- Control PID
-- Calibración automática
-- PWM a 31.25 kHz
-- Código modularizado con .h/.cpp
+## Features
+
+- PD controller
+- Automatic sensor calibration
+- PWM at 31.25 kHz
+- Modular C++ architecture (.h/.cpp)
+
+## Goals
+
+- Fast and stable line tracking
+- Clean and maintainable C++ code
+- Easy hardware upgrades
+- Reusable modules
+
+## Future Improvements
+
+- Integral term (PID)
+- Bluetooth tuning
+- Lap timing
+- Telemetry

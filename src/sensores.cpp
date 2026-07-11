@@ -10,12 +10,13 @@ void configSensores() {
 }
 
 void calibrarSensores() {
-  rotarEnLugar(80, -80);
+  
+  motores.rotarEnLugar(80, -80);
 
   for (uint16_t i = 0; i < 200; i++) {
     qtr.calibrate(); delay(10);
   }
-  rotarEnLugar(0, 0); delay(100);
+  motores.rotarEnLugar(0, 0); delay(100);
 }
 
 void leerSensores() {

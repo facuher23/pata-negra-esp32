@@ -8,6 +8,9 @@ struct Pid {
 
     int errorAnterior = 0;
     int correccion = 0;
+    
+    int pwmBase = 200;
+    int pwmSalida = 0; 
 };
 
 extern Pid pid;

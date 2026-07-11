@@ -3,7 +3,7 @@
 #include "pid.h"
 
 void setup() {
-  configMotores();
+  motores.begin();
   configSensores();
   calibrarSensores();
 }
@@ -11,5 +11,5 @@ void setup() {
 void loop() {
   leerSensores();
   calcularPID();
-  moverMotores();
+  motores.mover(pid.pwmSalida, pid.correccion);
 }

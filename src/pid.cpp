@@ -1,6 +1,5 @@
 #include "pid.h"
 #include "sensores.h"
-#include "motores.h"
 #include "config.h"
 
 Pid pid;
@@ -12,7 +11,7 @@ void calcularPID() {
     } else {
       pid.correccion = -255;
     }
-    motores.pwmActual = 0; 
+    pid.pwmSalida = 0; 
     return;
   }
 
@@ -22,11 +21,11 @@ void calcularPID() {
   pid.correccion = (pid.kp * error) + (pid.kd * derivada);
   pid.errorAnterior = error;
 
-  float pwmTemporal = motores.pwmBase - abs(error) * pid.kFreno;
+  float pwmTemporal = pid.pwmBase - abs(error) * pid.kFreno;
   
   if (pwmTemporal < 50.0) { 
     pwmTemporal = 50.0; 
   }
 
-  motores.pwmActual = (uint8_t)pwmTemporal;
+  pid.pwmSalida = (uint8_t)pwmTemporal; 
 }
