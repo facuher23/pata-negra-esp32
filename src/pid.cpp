@@ -1,31 +1,29 @@
 #include "pid.h"
-#include "sensores.h"
 #include "config.h"
 
 Pid pid;
 
-void calcularPID() {
-  if (!sensores.enLinea) {
-    if (pid.errorAnterior > 0) {
-      pid.correccion = 255;
+void Pid::calcular(uint16_t posicionActual, bool estaEnLinea) {
+  if (!estaEnLinea) {
+    if (errorAnterior > 0) {
+      correccion = 255;
     } else {
-      pid.correccion = -255;
-    }
-    pid.pwmSalida = 0; 
-    return;
+        correccion = -255;
+      }
+  pwmSalida = 0; 
+  return;
   }
 
-  int error = sensores.posicion - centro;
-  int derivada = error - pid.errorAnterior;
-  
-  pid.correccion = (pid.kp * error) + (pid.kd * derivada);
-  pid.errorAnterior = error;
+  int error = posicionActual - Config::centro;
+  int derivada = error - errorAnterior;
+    
+  correccion = (kp * error) + (kd * derivada);
+  errorAnterior = error;
 
-  float pwmTemporal = pid.pwmBase - abs(error) * pid.kFreno;
-  
+  float pwmTemporal = pwmBase - abs(error) * kFreno;
+    
   if (pwmTemporal < 50.0) { 
     pwmTemporal = 50.0; 
   }
-
-  pid.pwmSalida = (uint8_t)pwmTemporal; 
+  pwmSalida = (uint8_t)pwmTemporal;
 }

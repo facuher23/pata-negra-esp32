@@ -1,7 +1,14 @@
 #pragma once
 #include <Arduino.h>
 
-struct Pid {
+class Pid {
+public:
+    void calcular(uint16_t posicionActual, bool estaEnLinea);
+
+    int getCorreccion() const { return correccion; }
+    uint8_t getPwmSalida() const { return pwmSalida; }
+
+private:
     float kp = 0.05;
     float kd = 0.3;
     float kFreno = 0.01;
@@ -10,9 +17,7 @@ struct Pid {
     int correccion = 0;
     
     int pwmBase = 200;
-    int pwmSalida = 0; 
+    uint8_t pwmSalida = 0;
 };
 
 extern Pid pid;
-
-void calcularPID();

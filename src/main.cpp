@@ -3,13 +3,13 @@
 #include "pid.h"
 
 void setup() {
-  motores.begin();
-  configSensores();
-  calibrarSensores();
+    motores.begin();
+    sensores.begin();
+    sensores.calibrar();
 }
 
 void loop() {
-  leerSensores();
-  calcularPID();
-  motores.mover(pid.pwmSalida, pid.correccion);
+    sensores.leer();
+    pid.calcular(sensores.getPosicion(), sensores.estaEnLinea());
+    motores.mover(pid.getPwmSalida(), pid.getCorreccion());
 }
