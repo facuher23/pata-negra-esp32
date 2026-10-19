@@ -7,9 +7,9 @@ This project focuses not only on competitive performance but also on writing mai
 ## Hardware
 
 - **Microcontroller:** ESP32-S3 N16R8
-- **Sensors:** Pololu QTR-8RC
-- **Motor Driver:** DRV8833
-- **Motors:** N20 1000 RPM
+- **Sensors:** TCRT 5000 * 5
+- **Motor Driver:** TB6612FNG
+- **Motors:** N20 1000 RPM 12V
 - **Wheels:** Ø30 mm
 - **Battery:** 2S 18650 Li-ion (7.4 V nominal)
 
