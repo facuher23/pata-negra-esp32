@@ -4,8 +4,8 @@
 Sensores sensores;
 
 void Sensores::begin() {
-  qtr.setTypeRC();
-  qtr.setSensorPins((const uint8_t[]){4, 5, 6, 7, 8, 9, 10, 11}, Config::cantidadSensores);
+  qtr.setTypeAnalog();
+  qtr.setSensorPins((const uint8_t[]){4, 5, 6, 7, 8}, Config::cantidadSensores);
 }
 
 void Sensores::calibrar() {

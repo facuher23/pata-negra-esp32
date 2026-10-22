@@ -7,17 +7,19 @@ This project focuses not only on competitive performance but also on writing mai
 ## Hardware
 
 - **Microcontroller:** ESP32-S3 N16R8
-- **Sensors:** TCRT 5000 * 5
+- **Sensors:** 5× TCRT5000 (analog, discrete)
 - **Motor Driver:** TB6612FNG
 - **Motors:** N20 1000 RPM 12V
 - **Wheels:** Ø30 mm
-- **Battery:** 2S 18650 Li-ion (7.4 V nominal)
+- **Power:** 2S 18650 Li-ion (7.4 V nominal) → step-up to 12 V for the motors
+- **Track:** white line on black background
 
 ## Software
 
 - PlatformIO
 - Arduino Framework
 - C++
+- QTRSensors library (analog mode)
 
 ## Features
 
