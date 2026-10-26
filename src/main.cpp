@@ -1,9 +1,11 @@
 #include "motores.h"
 #include "pid.h"
 #include "sensores.h"
+#include "web.h"
 
 void setup() {
   motores.begin();
+  webBegin();
   sensores.begin();
   sensores.calibrar();
 }

@@ -9,7 +9,7 @@ void Sensores::begin() {
 }
 
 void Sensores::calibrar() {
-  motores.rotarEnLugar(80, -80);
+  motores.rotarEnLugar(220u, -220);
 
   for (uint16_t i = 0; i < 200; i++) {
     qtr.calibrate();
